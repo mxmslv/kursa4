@@ -1,0 +1,456 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --background: #090917;
+    --font: #f3eeee;
+    --border: #949393;
+    --sun: #cc6723;
+    --mercury: #e5dcdc;
+    --venus: #737ede;
+    --earth: #4d89c9; 
+    --mars: #dfc0a1;
+    --jupiter: #bd9260;
+    --saturn: #d4b776;
+    --uranus: #b6d2ef;
+    --neptune: #0072a8;
+    --scrollbar: #e8e5e5;
+}
+
+/*scrollbar start*/
+
+::-webkit-scrollbar {
+    width: .5rem;
+}
+
+::-webkit-scrollbar-track {
+    background: var(--background);
+}
+
+::-webkit-scrollbar-thumb {
+    background-color: var(--scrollbar);
+    border-radius: 15px;
+}
+
+/*scrollbar end*/
+
+/*focus start*/
+
+a:focus {
+    outline: var(--font) 1px solid;
+    padding: .5rem;
+}
+
+a:focus:not(:focus-visible) {
+    outline: none;
+    padding: 0;
+}
+
+/*focus end*/
+
+body {
+    width: 100%;
+    height: 100vh;
+    background-color: var(--background);
+    font-family: 'Montserrat', sans-serif;
+    cursor: default;
+}
+
+/*navbar start*/
+
+.links {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+}
+
+.links ul li {
+    display: inline-block;
+    list-style: none;
+    padding: 1rem;
+}
+
+.links ul li a {
+    position: relative;
+    color: var(--font);
+    text-decoration: none;
+    text-transform: uppercase;
+    letter-spacing: 5px;
+    transition: 350ms ease all;
+    -webkit-tap-highlight-color: transparent;
+}
+
+.links ul li a::before {
+    content: '';
+    position: absolute;
+    bottom: -5px;
+    left: 50%;
+    width: 0;
+    height: 1px;
+    background-color: var(--font);
+    transition: 350ms ease;
+}
+
+.links ul li.current-page a::before,
+.links ul li a:hover::before {
+    width: 100%;
+    left: 0;
+}
+
+.links ul li a:visited {
+    color: var(--font);
+}
+
+.hamburger-menu {
+    display: none;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    top: .75rem;
+    left: 1rem;
+    height: 2rem;
+    width: 1.25rem;
+    background-color: transparent;
+    cursor: pointer;
+    -webkit-tap-highlight-color: transparent;
+    z-index: 15;
+}
+
+.bars {
+    position: relative;
+    height: 3px;
+    width: 100%;
+    border-radius: 5px;
+    background-color: transparent;
+}
+
+.bars::before,
+.bars::after {
+    content: '';
+    position: absolute;
+    height: 70%;
+    width: 100%;
+    border-radius: 5px;
+    background-color: var(--font);
+    transition: 350ms ease;
+}
+
+.bars::before {
+    transform: translateY(-4px);
+}
+
+.bars::after {
+    transform: translateY(4px);
+}
+
+/*navbar end*/
+
+/*main start*/
+
+.wrapper {
+    padding-bottom: 2rem;
+}
+
+/*title start*/
+
+.title h1,
+.title p {
+    text-align: center;
+    font-weight: 400;
+    text-transform: uppercase;
+    letter-spacing: 4px;
+    padding: .25rem;
+    width: 60%;
+    line-height: 1.8;
+    margin: 30px auto 0;
+    color: var(--font);
+}
+
+.title h1 {
+    font-size: clamp(1.5rem, 3vw, 2rem);
+}
+
+/*title end*/
+
+/*planetary cards start*/
+
+.planetary-cards {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.25rem;
+    margin: 50px auto 0;
+    max-width: 1000px;
+}
+
+.card-contents {
+    position: relative;
+    width: 100%;
+    height: 100%;
+}
+
+.card {
+    margin: 0 auto;
+    width: 320px;
+    height: 450px;
+    color: var(--font);
+    border: var(--border) 2px solid;
+    transition: 250ms ease-in-out;
+}
+
+.card:nth-child(1):hover {
+    border: var(--mercury) 2px solid;
+    box-shadow: 0 0 2px var(--mercury),
+                0 0 5px var(--mercury),
+                0 0 10px var(--mercury),
+                0 0 20px var(--mercury);
+}
+
+.card:nth-child(2):hover {
+    border: var(--venus) 2px solid;
+    box-shadow: 0 0 2px var(--venus),
+                0 0 5px var(--venus),
+                0 0 10px var(--venus),
+                0 0 20px var(--venus);
+}
+
+.card:nth-child(3):hover {
+    border: var(--earth) 2px solid;
+    box-shadow: 0 0 2px var(--earth),
+                0 0 5px var(--earth),
+                0 0 10px var(--earth),
+                0 0 20px var(--earth);
+}
+
+.card:nth-child(4):hover {
+    border: var(--mars) 2px solid;
+    box-shadow: 0 0 2px var(--mars),
+                0 0 5px var(--mars),
+                0 0 10px var(--mars),
+                0 0 20px var(--mars);
+}
+
+.card:nth-child(5):hover {
+    border: var(--sun) 2px solid;
+    box-shadow: 0 0 2px var(--sun),
+                0 0 5px var(--sun),
+                0 0 10px var(--sun),
+                0 0 20px var(--sun);
+}
+
+.card:nth-child(6):hover {
+    border: var(--jupiter) 2px solid;
+    box-shadow: 0 0 2px var(--jupiter),
+                0 0 5px var(--jupiter),
+                0 0 10px var(--jupiter),
+                0 0 20px var(--jupiter);
+}
+
+.card:nth-child(7):hover {
+    border: var(--saturn) 2px solid;
+    box-shadow: 0 0 2px var(--saturn),
+                0 0 5px var(--saturn),
+                0 0 10px var(--saturn),
+                0 0 20px var(--saturn);
+}
+
+.card:nth-child(8):hover {
+    border: var(--uranus) 2px solid;
+    box-shadow: 0 0 2px var(--uranus),
+                0 0 5px var(--uranus),
+                0 0 10px var(--uranus),
+                0 0 20px var(--uranus);
+}
+
+.card:nth-child(9):hover {
+    border: var(--neptune) 2px solid;
+    box-shadow: 0 0 2px var(--neptune),
+                0 0 5px var(--neptune),
+                0 0 10px var(--neptune),
+                0 0 20px var(--neptune);
+}
+
+.card img {
+    display: block;
+    height: auto;
+    width: 100%;
+    text-align: center;
+    text-transform: uppercase;
+    letter-spacing: .75px;
+}
+
+.card h2 {
+    text-align: center;
+    text-transform: uppercase;
+    font-size: clamp(1rem, 3vw, 1.4rem);
+    letter-spacing: 1px;
+    font-weight: 400;
+    margin-top: 1rem;
+}
+
+.card p {
+    padding: .5rem;
+    margin: 0 auto;
+    opacity: 95%;
+}
+
+a {
+  text-decoration: none; /* Убираем подчеркивание */
+  color: inherit; /* Наследуем цвет от родительского элемента */
+}
+
+/*planetary cards end*/
+
+/*main end*/
+
+/*media query's start*/
+
+@media screen and (max-width: 1368px) and (hover: none) and (pointer: coarse) {
+    .no-scroll {
+        overflow-y: hidden;
+    }
+	
+    .wrapper.active .links {
+        transform: translateX(0);
+    }
+	
+    .wrapper.active .overlay {
+        opacity: 1;
+        pointer-events: all;
+    }
+	
+    .links {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        top: 0;
+        right: 0;
+        position: fixed;
+        height: 100%;
+        width: 100%;
+        background-color: var(--background);
+        transform: translateY(-100%);
+        transition: 300ms;
+        overflow-y: auto;
+        z-index: 15;
+    }
+	
+    .links ul li {
+        display: flex;
+        flex-direction: column;
+        padding: 1.75rem;
+    }
+	
+    .links ul li a {
+        color: var(--font);
+    }
+	
+    .links ul li a::before {
+        content: none;
+    }
+	
+    .hamburger-menu {
+        display: flex;
+    }
+	
+    .overlay {                               
+        display: block;
+        position: fixed;
+        inset: 0;
+        background-color: rgba(0, 0, 0, .7);
+        opacity: 0;
+        pointer-events: none;
+        transition: 300ms;
+        z-index: 10;
+    }
+	
+    .card:nth-child(1):hover,
+    .card:nth-child(2):hover,
+    .card:nth-child(3):hover,
+    .card:nth-child(4):hover,
+    .card:nth-child(5):hover,
+    .card:nth-child(6):hover,
+    .card:nth-child(7):hover,
+    .card:nth-child(8):hover,
+    .card:nth-child(9):hover {
+        border: var(--border) solid 2px;
+        box-shadow: none;
+    }
+}
+@media screen and (max-width: 338px) {
+    .solar-system {
+        display: none;
+    }
+	
+    .title p {
+        width: 90%;
+        text-align: left;
+    }
+	
+    .planetary-cards {
+        grid-template-columns: repeat(1, 1fr);
+        gap: 1rem;
+        margin: 30px auto 0;
+    }
+	
+    .card {
+        margin: 0 auto;
+        width: 90%;
+    }
+}
+
+@media screen and (min-width: 339px) and (max-width: 430px) {
+    .title h1,
+    .title p {
+        width: 90%;
+        text-align: left;
+    }
+	
+    .planetary-cards {
+        grid-template-columns: repeat(1, 1fr);
+        gap: 2rem;
+    }
+	
+    .card {
+        margin: 0 auto;
+        width: 90%;
+    }
+	
+    .card p {
+        opacity: 85%;
+        line-height: 1.2;
+    }
+}
+
+@media screen and (min-width: 431px) and (max-width: 932px) {
+    .title p {
+        width: 95%;
+        text-align: left;
+    }
+	
+    .planetary-cards {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 1rem;
+        padding: 1.5rem;
+    }
+	
+    .card {
+        margin: 0 auto;
+        width: 100%;
+    }
+	
+    .card p {
+        opacity: 85%;
+        line-height: 1.2;
+    }
+}
+@media screen and (min-width: 1368px) {
+    .title p {
+        max-width: 45%;
+    }
+}
+/*media query's end*/
